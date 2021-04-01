@@ -39,10 +39,14 @@
 
 ## RACHEL'S CODE PLAN:
 
+# BEFORE CODING
+
 - Read through ACA starter code a few times
 - Read through unit tests from previous assignments (copied/commented PigLatin for reference)
 
 ---
+
+# INPUT FORM
 
 - Create input form in HTML for new person
 - Input needs whitespace trimmed and case sensitive --> trim() and .style.textTransform = "capitalize"; use these at getElementByID() for form data retrieval
@@ -51,11 +55,15 @@
 
 ---
 
+# PERSON TO PLAYER
+
 - Person list objects need to be able to move to players on a team with button click(s)
 - Person object moved to a team must be deleted from person list/class
 - Person object needs to transform or inherit (and leave behind) values- so same as other players
 
 ---
+
+# PLAYER TO PERSON
 
 - Player list objects need to be able to move to person with button click(s)
 - Player object moved to person list must be deleted from player list/class
@@ -63,10 +71,22 @@
 
 ---
 
+# PLAYER TO TEAM ROSTER
+
+- Player list objects need to be able to move to team list button click(s)
+- Player object moved to team list must be deleted from player list/class
+- Player object needs to transform or inherit (and leave behind) values- same as other team members
+
+---
+
+# RANDOMIZER FOR AUTO-TEAM DRAFTING
+
 - Create random sorter button to auto-set teams from persons list to players list (math.random()connected to IDs?)
 - Button in HTML - have event listeners, pass through (ev), make sure spaced logically away from add new person form
 
 ---
+
+# MAKE MORE THAN 2 TEAMS
 
 - Create additional team classes for players to be added to
 - add a minimum number of players for the team to be a minimum roster
@@ -75,27 +95,42 @@
 
 ---
 
+# COLOR CHANGE TO TEAM COLORS WHEN DRAFTED
+
 - CSS & JS: change the color of the text for each color based on the color of their team!
 - Check color contrast to ensure basic accesability
 
 ---
 
-- Write Unit Tests
-- Test 1) new person form input is pulled from DOM and put into person class correctly
-- Test 2) people are moved to players class- move over, inherit new values, delete from person list
-- Test 3) players can be removed from team and put back into people list- move, inherit, delete
-- Test 4) counter for number of players on team counts up and down correctly
-- Test 5) names are entered with capitalization and trimmed white space??
+# PLAYER LIST DISPLAYED IN DOM
+
+- Fix inherent bug in ACA starter code-- make sure it stops looping ontop of itself everytime button pressed
 
 ---
 
-- Simple Accessability Checks: IF TIME BEFORE DUE DATE!
+# UNIT TESTING
+
+- Write Unit Tests
+- Test 1) new person form input is pulled from DOM and put into person class correctly
+- Test 2) people are moved to players class- move over, inherit new values, delete from person list
+- Test 3) players can be moved back into people list- move, inherit, delete
+- Test 4) randomizer pulls from people list to populate players on teams
+- Test 5) players can be put onto teams- move, inherit, delete
+- Test 6) counter for number of players on team counts up and down correctly
+- Test 7) names are entered with capitalization and trimmed white space??
+
+---
+
+# Simple Accessability Checks: IF TIME BEFORE DUE DATE!
+
 - focus for buttons and form- outline
 - colors are high contrast - but also not too busy and jarring (prevent stimulation overload)
 - quick research for any needed Aria tags if not built into native HTML
 - change ACA starter Divs to Semantic HTML elements
 
---- Responsive CSS Styling: IF TIME BEFORE DUE DATE!
+---
+
+# Responsive CSS Styling: IF TIME BEFORE DUE DATE!
 
 - arrange for mobile, tablet, laptop screens
 - if time also check for larger screens?
