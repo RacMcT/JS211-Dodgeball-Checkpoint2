@@ -71,11 +71,19 @@
 
 ---
 
-# PLAYER TO TEAM ROSTER
+# PLAYER TO TEAM MEMBER
 
 - Player list objects need to be able to move to team list button click(s)
 - Player object moved to team list must be deleted from player list/class
 - Player object needs to transform or inherit (and leave behind) values- same as other team members
+
+---
+
+# TEAM MEMBER TO PLAYER
+
+- Team member list objects need to be able to move to player list button click(s)
+- Team member moved to team list must be deleted from Team member list/class
+- Team member needs to transform or inherit (and leave behind) values- same as other players
 
 ---
 
