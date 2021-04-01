@@ -1,20 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-   
-  </head>
-  <body>
-    <h1>Pig Latin Translator Game</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dodge Ball</title>
+</head>
+<body>
+
+  <form action="/main.js" id="newPersonForm" class="newPersonForm">
+    <label for="name">Full Name: </label>
+    <input type="text" id="name" name="name">
+    <br>  
+    <label for="age">Age: </label>
+    <input type="text" id="age" name="age">
+    <br>  
+    <label for="skillSet">Special Skill: </label>
+    <input type="text" id="skillSet" name="skill set">
+    <br>  
+    <label for="placeBorn">Place Born: </label>
+    <input type="text" id="placeBorn" name="place born">
     <br>
-    <label for="input">Word to Translate:</label>
-    <br>
-    <input type="text" id="input" name="input">
-    <br>
-    <button onclick=pigLatin()>Translate</button>
-    <p id="translation"></p>
-    
-    <script src="GUI.js"></script>
-  </body>
+    <button id="submit" class="button">Submit</button>
+  </form>
+
+  
+
+  <div>
+      <h4>List Of People</h4>
+      <ul id="people"></ul>
+  </div>
+  <button onclick="listPeopleChoices()">List People</button>
+  <div>
+      <h4>Dodge Ball Players</h4>
+      <ul id="players"></ul>
+  </div>
+  <div>
+      <h4>Blue Team</h4>
+      <ul id="blue"></ul>
+  </div>
+  <div>
+      <h4>Red Team</h4>
+      <ul id="red"></ul>
+  </div>
+  <script src='./main.js'></script>
+</body>
 </html>

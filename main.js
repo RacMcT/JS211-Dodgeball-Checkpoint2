@@ -11,40 +11,117 @@
 // });
 
 
-const pigLatin = () => {
-  let word = document.getElementById("input").value
-  word= word.toLowerCase().trim();
-  const vowels = ["a", "e", "i", "o", "u"];
+const arrOfPeople = [
+  {
+    id: 2,
+    name: "Charles Young",
+    age: 55,
+    skillSet: "welding",
+    placeBorn: "Omaha, Nebraska"
+  },
+  {
+    id: 3,
+    name: "Judy Twilight",
+    age: 35,
+    skillSet: "fishing",
+    placeBorn: "Louisville, Kentucky"
+  },
+  {
+    id: 4,
+    name: "Cynthia Doolittle",
+    age: 20,
+    skillSet: "tic tac toe",
+    placeBorn: "Pawnee, Texas"
+  },
+  {
+    id: 5,
+    name: "John Willouby",
+    age: 28,
+    skillSet: "pipe fitting",
+    placeBorn: "New York, New York"
+  },
+  {
+    id: 6,
+    name: "Stan Honest",
+    age: 20,
+    skillSet: "boom-a-rang throwing",
+    placeBorn: "Perth, Australia"
+  },
+  {
+    id: 7,
+    name: "Mia Watu",
+    age: 17,
+    skillSet: "acrobatics",
+    placeBorn: "Los Angeles, California"
+  },
+  {
+    id: 8,
+    name: "Walter Cole",
+    age: 32,
+    skillSet: "jump rope",
+    placeBorn: "New Orleans, Louisiana"
+  },
+]
 
-// holds new word for output
-  let pigWord=""; 
+const listOfPlayers = []
+const blueTeam = []
+const redTeam = []
 
-  //If it doesn't start with a vowel than by default it starts with a constanant- if/else statement
+class player {
+  constructor(){}
+}
+class blueTeammate {
+  constructor(){}
+}
+class redTeammate {
+  constructor(){}
+}
 
-  if(vowels.indexOf(word[0]) > -1){
-    pigWord = word + "yay";
-    return pigWord;
-  } else{
-    let firstMatch = word.match(/[aeiou]/g) || 0;
-    let vowels = word.indexOf (firstMatch [0]);
-    pigWord = word.substring(vowels) + word.substring(0,vowels) + "ay";
-    return document.getElementById("translation").innerHTML += pigWord; 
+const listPeopleChoices = () => {
+  const listElement = document.getElementById('people')
+  arrOfPeople.map(person => {
+    const li = document.createElement("li")
+    const button = document.createElement("button")
+    button.innerHTML = "Make Player"
+    button.addEventListener('click', function() {makePlayer(person.id)} )
+    li.appendChild(button)
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    listElement.append(li)
+  })
+}
+
+const makePlayer = (id) => {
+  console.log(`li ${id} was clicked!`)
+}
+
+let newPerson = []; // array to be populated with form submission data ** push to class/objects?
+
+const addNewPerson = (ev) => {
+  ev.preventDefault(); // to stop form submitting 
+  let newPersonForm = {
+    id: Date.now(), // need to figure out how to put into object class ID numbers?!
+    name: document.getElementById('name').value,
+    age: document.getElementById('age').value,
+    skillSet: document.getElementById('skillSet').value,
+    placeBorn: document.getElementById('placeBorn').value
   }
+  newPerson.push(newPersonForm);
+  document.querySelector('form').reset() // to clear form for next entries
+}
+//saves to local storage -- DO I REALLY NEED THIS??
+//NOW NEED TO BE ABLE TO FIGURE OUT HOW TO CONNECT IT INTO OBJECT CLASS?!
+localStorage.setItem('newPersonLocalStorage', JSON.stringify(newPerson));
 
-  
-  }
 
-// the first function called in the program to get an input from the user
-// to run the function use the command: node main.js
-// to close it ctrl + C
-// const getPrompt = () => {
-//   rl.question('word ', (answer) => {
-//     console.log( pigLatin(answer) );
-//     getPrompt();
-//   });
-// }
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('submit').addEventListener('click', addNewPerson);
+}
+);
 
-// // Unit Tests
+
+
+
+// // Unit Tests from PigLatin as example for syntax
 // // to use them run the command: npm test main.js
 // // to close them ctrl + C
 // if (typeof describe === 'function') {
