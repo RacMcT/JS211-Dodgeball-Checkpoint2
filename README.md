@@ -28,7 +28,7 @@
 
 1. 20pts - Minimum 3 Unit Tests - Use Mocha and Chai to give us at least 3 unit tests that prove a person becomes a player and a player becomes a teammate.
 
-- Add an input at the top of the Window that allows for a user to add new people!
+- Add an input at the top of the Window that allows for a user to add new people! - WORKING THROUGH
 - Make a random-izer to automatically select teams for us!
 - Add multiple teams to add players to.
 - Change the color of the text for each color based on the color of their team!
@@ -38,6 +38,67 @@
 # fix continual loop everytime click list people button- just reloops and pushes to DOM same list
 
 ## RACHEL'S CODE PLAN:
+
+- Read through ACA starter code a few times
+- Read through unit tests from previous assignments (copied/commented PigLatin for reference)
+
+---
+
+- Create input form in HTML for new person
+- Input needs whitespace trimmed and case sensitive --> trim() and .style.textTransform = "capitalize"; use these at getElementByID() for form data retrieval
+- New person form data needs to be retrieved and saved with keys
+- New person form data needs to be appended to or added to current objects in person class
+
+---
+
+- Person list objects need to be able to move to players on a team with button click(s)
+- Person object moved to a team must be deleted from person list/class
+- Person object needs to transform or inherit (and leave behind) values- so same as other players
+
+---
+
+- Player list objects need to be able to move to person with button click(s)
+- Player object moved to person list must be deleted from player list/class
+- Player object needs to transform or inherit (and leave behind) values- so same as other people
+
+---
+
+- Create random sorter button to auto-set teams from persons list to players list (math.random()connected to IDs?)
+- Button in HTML - have event listeners, pass through (ev), make sure spaced logically away from add new person form
+
+---
+
+- Create additional team classes for players to be added to
+- add a minimum number of players for the team to be a minimum roster
+- counter for each team- counts number of players (add or subtract depending on li)
+- once team has minimum number of players - some css styling change on counter?
+
+---
+
+- CSS & JS: change the color of the text for each color based on the color of their team!
+- Check color contrast to ensure basic accesability
+
+---
+
+- Write Unit Tests
+- Test 1) new person form input is pulled from DOM and put into person class correctly
+- Test 2) people are moved to players class- move over, inherit new values, delete from person list
+- Test 3) players can be removed from team and put back into people list- move, inherit, delete
+- Test 4) counter for number of players on team counts up and down correctly
+- Test 5) names are entered with capitalization and trimmed white space??
+
+---
+
+- Simple Accessability Checks: IF TIME BEFORE DUE DATE!
+- focus for buttons and form- outline
+- colors are high contrast - but also not too busy and jarring (prevent stimulation overload)
+- quick research for any needed Aria tags if not built into native HTML
+- change ACA starter Divs to Semantic HTML elements
+
+--- Responsive CSS Styling: IF TIME BEFORE DUE DATE!
+
+- arrange for mobile, tablet, laptop screens
+- if time also check for larger screens?
 
 ### Running the apps
 

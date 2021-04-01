@@ -94,6 +94,9 @@ const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
 }
 
+
+
+// FOR NEW PERSON INPUT FORM
 let newPerson = []; // array to be populated with form submission data ** push to class/objects?
 
 const addNewPerson = (ev) => {
@@ -122,6 +125,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 // // Unit Tests from PigLatin as example for syntax
+
 // // to use them run the command: npm test main.js
 // // to close them ctrl + C
 // if (typeof describe === 'function') {
