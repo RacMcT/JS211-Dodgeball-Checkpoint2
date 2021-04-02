@@ -10,9 +10,6 @@
 //   output: process.stdout
 // });
 
-const arrOfDodgeballPlayers = [];
-const blueTeam = []
-const redTeam = []
 
 const arrOfPeople = [
   {
@@ -66,73 +63,84 @@ const arrOfPeople = [
   },
 ]
 
-class Person{
+const listOfPlayers = []
+const blueTeam = []
+const redTeam = []
 
-  id; 
-  name;
-  age;
-  skillSet;
-  placeBorn; 
+class Player {
+  constructor(id, name, index) {
+    this.id = id
+    this.name = name
+    this.index = index
+  }
 
-  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn){
-    this.id = inputId; 
-    this.name = inputName;
-    this.age = inputAge;
-    this.skillSet = inputSkills;
-    this.placeBorn = inputPlaceBorn; 
+  addPlayer() {
+    const uniqueId = this.id
+    const uniqueName = this.name
+
+    const listPlayers = document.getElementById("players")
+    const li = document.createElement("li")
+    li.setAttribute("id", this.index)
+
+    const button1 = document.createElement("button")
+    button1.innerHTML = "Blue Team"
+    button1.addEventListener("click", function () {
+      addTeammate(uniqueId, uniqueName, "Blue", "The Blue Seals", this.index)
+    })
+
+    const button2 = document.createElement("button")
+    button2.innerHTML = "Red Team"
+    button2.addEventListener("click", function () {
+      addTeammate(uniqueId, uniqueName, "Red", "The Red Cardinals", this.index)
+    })
+
+    listPlayers.append(li)
+    li.appendChild(
+      document.createTextNode(
+        `Player Name: ${this.name}
+        Player Number: ${this.id}`
+      )
+    )
+    li.appendChild(button1)
+    li.appendChild(button2)
+  }
+}
+class Teammate extends Player {
+  constructor(id, name, color, mascot) {
+    super(id, name)
+    this.color = color
+    this.mascot = mascot
+  }
+
+  addBlueTeammate() {
+    const listBlue = document.getElementById("blue")
+    const li = document.createElement("li")
+    listBlue.append(li)
+    li.appendChild(
+      document.createTextNode(
+        `Player Name: ${this.name}
+        Player Number: ${this.id}
+        Team: ${this.color}
+        Mascot: ${this.mascot}`
+      )
+    )
+  }
+
+  addRedTeammate() {
+    const listBlue = document.getElementById("red")
+    const li = document.createElement("li")
+    listBlue.append(li)
+    li.appendChild(
+      document.createTextNode(
+        `Player Name: ${this.name}
+        Player Number: ${this.id}
+        Team: ${this.color}
+        Mascot: ${this.mascot}`
+      )
+    )
   }
 }
 
-class DodgeballPlayer extends Person{
- 
-  canThrowBall; 
-  canDodgeBall; 
-  hasPaid; 
-  isHealthy;
-  yearsExperience; 
-
-  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn, inputCanThrowBall, inputCanDodgeBall, inputHasPaid, inputIsHealthy, inputYearsExperience){ 
-    super(inputId, inputName, inputAge, inputSkills, inputPlaceBorn); 
-    this.canThrowBall = true;
-    this.canDodgeBall = true;
-    this.hasPaid = true;
-    this.isHealthy = true;
-    this.yearsExperience = 10; 
-  }
-
-  addToDodgeBallPlayerList(){
-    arrOfDodgeballPlayers.push(this); 
-  }
-}
-
-
-
-class blueTeam extends Person{
-
-  color;
-  mascot; 
-
-  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn){
-      super(inputId, inputName, inputAge, inputSkills, inputPlaceBorn); 
-      this.color = 'blue'; 
-      this.mascot = 'seals';
-  }
-
-}
-
-class redTeam extends Person{
-
-  //include 2 new properties called color and mascot with the values 'red' and 'red cougar' appropriately 
-  
-  color;
-  mascot;
-
-  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn){
-    super(inputId, inputName, inputAge, inputSkills, inputPlaceBorn);
-    this.color = 'red';
-    this.mascot = 'cardinals'; 
-  }
-}
 
 const listPeopleChoices = () => {
   const listElement = document.getElementById('people')
@@ -147,14 +155,16 @@ const listPeopleChoices = () => {
   })
 }
 
-
 function clearList(){
   document.getElementById("people").innerHTML = ''; 
 }
 
+// const blueTeam = []
+// const redTeam = []
 
+const makePlayer = (id, name, i) => {
+  new Player(id, name).addPlayer()
 
-const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
 }
 

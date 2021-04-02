@@ -37,6 +37,8 @@
 
 # fix continual loop everytime click list people button- just reloops and pushes to DOM same list
 
+- need to put function into DOM via button?
+
 ## RACHEL'S CODE PLAN:
 
 # BEFORE CODING
