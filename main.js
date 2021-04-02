@@ -10,6 +10,9 @@
 //   output: process.stdout
 // });
 
+const arrOfDodgeballPlayers = [];
+const blueTeam = []
+const redTeam = []
 
 const arrOfPeople = [
   {
@@ -63,18 +66,72 @@ const arrOfPeople = [
   },
 ]
 
-const listOfPlayers = []
-const blueTeam = []
-const redTeam = []
+class Person{
 
-class player {
-  constructor(){}
+  id; 
+  name;
+  age;
+  skillSet;
+  placeBorn; 
+
+  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn){
+    this.id = inputId; 
+    this.name = inputName;
+    this.age = inputAge;
+    this.skillSet = inputSkills;
+    this.placeBorn = inputPlaceBorn; 
+  }
 }
-class blueTeammate {
-  constructor(){}
+
+class DodgeballPlayer extends Person{
+ 
+  canThrowBall; 
+  canDodgeBall; 
+  hasPaid; 
+  isHealthy;
+  yearsExperience; 
+
+  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn, inputCanThrowBall, inputCanDodgeBall, inputHasPaid, inputIsHealthy, inputYearsExperience){ 
+    super(inputId, inputName, inputAge, inputSkills, inputPlaceBorn); 
+    this.canThrowBall = true;
+    this.canDodgeBall = true;
+    this.hasPaid = true;
+    this.isHealthy = true;
+    this.yearsExperience = 10; 
+  }
+
+  addToDodgeBallPlayerList(){
+    arrOfDodgeballPlayers.push(this); 
+  }
 }
-class redTeammate {
-  constructor(){}
+
+
+
+class blueTeam extends Person{
+
+  color;
+  mascot; 
+
+  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn){
+      super(inputId, inputName, inputAge, inputSkills, inputPlaceBorn); 
+      this.color = 'blue'; 
+      this.mascot = 'seals';
+  }
+
+}
+
+class redTeam extends Person{
+
+  //include 2 new properties called color and mascot with the values 'red' and 'red cougar' appropriately 
+  
+  color;
+  mascot;
+
+  constructor(inputId, inputName, inputAge, inputSkills, inputPlaceBorn){
+    super(inputId, inputName, inputAge, inputSkills, inputPlaceBorn);
+    this.color = 'red';
+    this.mascot = 'cardinals'; 
+  }
 }
 
 const listPeopleChoices = () => {
@@ -89,6 +146,13 @@ const listPeopleChoices = () => {
     listElement.append(li)
   })
 }
+
+
+function clearList(){
+  document.getElementById("people").innerHTML = ''; 
+}
+
+
 
 const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
