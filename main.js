@@ -162,37 +162,62 @@ function clearList(){
 // const blueTeam = []
 // const redTeam = []
 
+// const makePlayer = (id, name, i) => {
+//   new Player(id, name).addPlayer()
+
+//   console.log(`li ${id} was clicked!`)
+// }
+
 const makePlayer = (id, name, i) => {
   new Player(id, name).addPlayer()
-
-  console.log(`li ${id} was clicked!`)
+  const h1 = document.getElementById("people")
+  const li = document.getElementById(i)
+  h1.removeChild(li)
 }
 
+const addTeammate = (id, name, color, mascot, i) => {
+  if (color === "Blue") {
+    new Teammate(id, name, color, mascot).addBlueTeammate()
+  } else {
+    new Teammate(id, name, color).addRedTeammate()
+  }
+  const h4 = document.getElementById("players")
+  const li = document.getElementById(i)
+  h4.removeChild(li)
+}
 
+module.exports = {
+  Player,
+  Teammate,
+  addTeammate,
+  makePlayer,
+  listPeopleChoices,
+}
 
 // FOR NEW PERSON INPUT FORM
-let newPerson = []; // array to be populated with form submission data ** push to class/objects?
+// let newPerson = []; // array to be populated with form submission data ** push to class/objects?
 
-const addNewPerson = (ev) => {
-  ev.preventDefault(); // to stop form submitting 
-  let newPersonForm = {
-    id: console.log(Math.round(Math.random() * (80 - 1) + 1)), // random whole numbers between 1-80 
-    name: document.getElementById('name').value,
-    age: document.getElementById('age').value,
-    skillSet: document.getElementById('skillSet').value,
-    placeBorn: document.getElementById('placeBorn').value
-  }
-  newPerson.push(newPersonForm);
-  document.querySelector('form').reset() // to clear form for next entries
-}
-//NOW NEED TO BE ABLE TO FIGURE OUT HOW TO CONNECT IT INTO OBJECT CLASS?!
+// const addNewPerson = (ev) => {
+//   ev.preventDefault(); // to stop form submitting 
+//   let newPersonForm = {
+//     id: console.log(Math.round(Math.random() * (80 - 1) + 1)), // random whole numbers between 1-80 
+//     name: document.getElementById('name').value,
+//     age: document.getElementById('age').value,
+//     skillSet: document.getElementById('skillSet').value,
+//     placeBorn: document.getElementById('placeBorn').value
+//   }
+//   newPerson.push(newPersonForm);
+//   document.querySelector('form').reset() // to clear form for next entries
+// }
+// //Need to figure out how to push input data into ArrOfPeople as sub-arrays?!
+// //Need form to require all fields filled out
+// // Need to use trim() and .style.textTransform = "capitalize"
 
 
-
-document.addEventListener('DOMContentLoaded', ()=>{
-  document.getElementById('submit').addEventListener('click', addNewPerson);
-}
-);
+// document.addEventListener('DOMContentLoaded', ()=>{
+//   document.getElementById('submit').addEventListener('click', addNewPerson);
+// }
+// );
 
 
 
