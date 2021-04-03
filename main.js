@@ -1,7 +1,7 @@
-// 'use strict';
+'use strict';
 
-// // brings in the assert module for unit testing
-// const assert = require('assert');
+// brings in the assert module for unit testing
+const assert = require('assert');
 // // brings in the readline module to access the command line
 // const readline = require('readline');
 // // use the readline module to print out to the command line
@@ -219,8 +219,33 @@ module.exports = {
 // }
 // );
 
+// UNIT TESTS:
 
-
+if (typeof describe === "function") {
+  describe("Player", function () {
+    it("Should create a player", function () {
+      const player1 = new Player(1, "Qwilleran McTavish")
+      assert.strictequal(player1.name, "Qwilleran McTavish")
+      assert.strictequal(player1.id, 1)
+    })
+  })
+  describe("Teammate", function () {
+    it("Should create a blue teammate", function () {
+      const teammate1 = new Teammate(1, "Qwilleran McTavish", "Blue", "Mascot")
+      assert.strictequal(teammate1.name, "Qwilleran McTavish")
+      assert.strictequal(teammate1.id, 1)
+      assert.strictequal(teammate1.color, "Blue")
+      assert.strictequal(teammate1.mascot, "Mascot")
+    })
+    it("Should create a red teammate", function () {
+      const teammate1 = new Teammate(1, "Qwilleran McTavish", "Red", "Mascot")
+      assert.strictequal(teammate1.name, "Qwilleran McTavish")
+      assert.strictequal(teammate1.id, 1)
+      assert.strictequal(teammate1.color, "Red")
+      assert.stricequal(teammate1.mascot, "Mascot")
+    })
+  })
+}
 
 // // Unit Tests from PigLatin as example for syntax
 
