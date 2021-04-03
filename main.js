@@ -176,7 +176,7 @@ let newPerson = []; // array to be populated with form submission data ** push t
 const addNewPerson = (ev) => {
   ev.preventDefault(); // to stop form submitting 
   let newPersonForm = {
-    id: Date.now(), // need to figure out how to put into object class ID numbers?!
+    id: console.log(Math.round(Math.random() * (80 - 1) + 1)), // random whole numbers between 1-80 
     name: document.getElementById('name').value,
     age: document.getElementById('age').value,
     skillSet: document.getElementById('skillSet').value,
@@ -185,9 +185,8 @@ const addNewPerson = (ev) => {
   newPerson.push(newPersonForm);
   document.querySelector('form').reset() // to clear form for next entries
 }
-//saves to local storage -- DO I REALLY NEED THIS??
 //NOW NEED TO BE ABLE TO FIGURE OUT HOW TO CONNECT IT INTO OBJECT CLASS?!
-localStorage.setItem('newPersonLocalStorage', JSON.stringify(newPerson));
+
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
