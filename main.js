@@ -1,7 +1,7 @@
-'use strict';
+// 'use strict';
 
 // brings in the assert module for unit testing
-const assert = require('assert');
+// const assert = require('assert');
 // // brings in the readline module to access the command line
 // const readline = require('readline');
 // // use the readline module to print out to the command line
@@ -186,16 +186,17 @@ const addTeammate = (id, name, color, mascot, i) => {
   h4.removeChild(li)
 }
 
-module.exports = {
-  Player,
-  Teammate,
-  addTeammate,
-  makePlayer,
-  listPeopleChoices,
-}
+// DO I NEED THE MODULE.EXPORTS? 
+// module.exports = {
+//   Player,
+//   Teammate,
+//   addTeammate,
+//   makePlayer,
+//   listPeopleChoices,
+// }
 
 // FOR NEW PERSON INPUT FORM
-// let newPerson = []; // array to be populated with form submission data ** push to class/objects?
+// let newPerson = []; // array to be populated with form submission data ** push to class as objects?
 
 // const addNewPerson = (ev) => {
 //   ev.preventDefault(); // to stop form submitting 
