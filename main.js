@@ -2,69 +2,10 @@
 
 // brings in the assert module for unit testing
 // const assert = require('assert');
-// // brings in the readline module to access the command line
-// const readline = require('readline');
-// // use the readline module to print out to the command line
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
 
 
-let newPerson = [
-  // {
-  //   id: 2,
-  //   name: "Charles Young",
-  //   age: 55,
-  //   skillSet: "welding",
-  //   placeBorn: "Omaha, Nebraska"
-  // },
-  // {
-  //   id: 3,
-  //   name: "Judy Twilight",
-  //   age: 35,
-  //   skillSet: "fishing",
-  //   placeBorn: "Louisville, Kentucky"
-  // },
-  // {
-  //   id: 4,
-  //   name: "Cynthia Doolittle",
-  //   age: 20,
-  //   skillSet: "tic tac toe",
-  //   placeBorn: "Pawnee, Texas"
-  // },
-  // {
-  //   id: 5,
-  //   name: "John Willouby",
-  //   age: 28,
-  //   skillSet: "pipe fitting",
-  //   placeBorn: "New York, New York"
-  // },
-  // {
-  //   id: 6,
-  //   name: "Stan Honest",
-  //   age: 20,
-  //   skillSet: "boom-a-rang throwing",
-  //   placeBorn: "Perth, Australia"
-  // },
-  // {
-  //   id: 7,
-  //   name: "Mia Watu",
-  //   age: 17,
-  //   skillSet: "acrobatics",
-  //   placeBorn: "Los Angeles, California"
-  // },
-  // {
-  //   id: 8,
-  //   name: "Walter Cole",
-  //   age: 32,
-  //   skillSet: "jump rope",
-  //   placeBorn: "New Orleans, Louisiana"
-  // },
-]
 
-let 
-
+const newPerson = []
 const listOfPlayers = []
 const blueTeam = []
 const redTeam = []
@@ -203,13 +144,13 @@ const addTeammate = (id, name, color, mascot, i) => {
 const addNewPerson = (ev) => {
   ev.preventDefault(); // to stop form submitting 
   let newPersonForm = {
-    id: console.log(Math.round(Math.random() * (80 - 1) + 1)), // random whole numbers between 1-80 
+    id: Math.round(Math.random() * (80 - 1) + 1), // random whole numbers between 1-80 
     name: document.getElementById('name').value,
     age: document.getElementById('age').value,
     skillSet: document.getElementById('skillSet').value,
     placeBorn: document.getElementById('placeBorn').value
   }
-  newPersonarrOfPeople.push(newPersonForm);
+  newPerson.push(newPersonForm);
   document.querySelector('form').reset() // to clear form for next entries
 }
 
