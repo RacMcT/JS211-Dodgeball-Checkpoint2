@@ -3,12 +3,52 @@
 // brings in the assert module for unit testing
 // const assert = require('assert');
 
-
-
 const newPerson = []
 const listOfPlayers = []
 const blueTeam = []
 const redTeam = []
+
+// FOR NEW PERSON INPUT FORM
+
+const addNewPerson = (ev) => {
+  ev.preventDefault(); // to stop form submitting 
+  let newPersonForm = {
+    id: Math.round(Math.random() * (80 - 1) + 1), // random whole numbers between 1-80 
+    name: document.getElementById('name').value,
+    age: document.getElementById('age').value,
+    skillSet: document.getElementById('skillSet').value,
+    placeBorn: document.getElementById('placeBorn').value
+  }
+  newPerson.push(newPersonForm);
+  document.querySelector('form').reset() // to clear form for next entries
+}
+
+
+//Need form to require all fields filled out
+// Need to use trim() and .style.textTransform = "capitalize"
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('submit').addEventListener('click', addNewPerson);
+}
+);
+
+const listPeopleChoices = () => {
+  const listElement = document.getElementById('people')
+  newPerson.map(person => {
+    const li = document.createElement("li")
+    const button = document.createElement("button")
+    button.innerHTML = "Make Player"
+    button.addEventListener('click', function() {makePlayer(person.id)} )
+    li.appendChild(button)
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    listElement.append(li)
+  })
+}
+
+function clearList(){
+  document.getElementById("people").innerHTML = ''; 
+}
+
 
 class Player {
   constructor(id, name, index) {
@@ -24,6 +64,7 @@ class Player {
     const listPlayers = document.getElementById("players")
     const li = document.createElement("li")
     li.setAttribute("id", this.index)
+    li.setAttribute("name", this.name)
 
     const button1 = document.createElement("button")
     button1.innerHTML = "Blue Team"
@@ -84,38 +125,11 @@ class Teammate extends Player {
   }
 }
 
-
-const listPeopleChoices = () => {
-  const listElement = document.getElementById('people')
-  newPerson.map(person => {
-    const li = document.createElement("li")
-    const button = document.createElement("button")
-    button.innerHTML = "Make Player"
-    button.addEventListener('click', function() {makePlayer(person.id)} )
-    li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-    listElement.append(li)
-  })
-}
-
-function clearList(){
-  document.getElementById("people").innerHTML = ''; 
-}
-
-// const blueTeam = []
-// const redTeam = []
-
-// const makePlayer = (id, name, i) => {
-//   new Player(id, name).addPlayer()
-
-//   console.log(`li ${id} was clicked!`)
-// }
-
 const makePlayer = (id, name, i) => {
   new Player(id, name).addPlayer()
   const h1 = document.getElementById("people")
   const li = document.getElementById(i)
-  h1.removeChild(li)
+  h1.remove(li)
 }
 
 const addTeammate = (id, name, color, mascot, i) => {
@@ -129,6 +143,11 @@ const addTeammate = (id, name, color, mascot, i) => {
   h4.removeChild(li)
 }
 
+
+
+
+
+
 // DO I NEED THE MODULE.EXPORTS? 
 // module.exports = {
 //   Player,
@@ -138,31 +157,7 @@ const addTeammate = (id, name, color, mascot, i) => {
 //   listPeopleChoices,
 // }
 
-// FOR NEW PERSON INPUT FORM
-// let newPerson = []; // array to be populated with form submission data ** push to class as objects?
 
-const addNewPerson = (ev) => {
-  ev.preventDefault(); // to stop form submitting 
-  let newPersonForm = {
-    id: Math.round(Math.random() * (80 - 1) + 1), // random whole numbers between 1-80 
-    name: document.getElementById('name').value,
-    age: document.getElementById('age').value,
-    skillSet: document.getElementById('skillSet').value,
-    placeBorn: document.getElementById('placeBorn').value
-  }
-  newPerson.push(newPersonForm);
-  document.querySelector('form').reset() // to clear form for next entries
-}
-
-//Need to figure out how to push input data into ArrOfPeople as sub-arrays?!
-//Need form to require all fields filled out
-// Need to use trim() and .style.textTransform = "capitalize"
-
-
-document.addEventListener('DOMContentLoaded', ()=>{
-  document.getElementById('submit').addEventListener('click', addNewPerson);
-}
-);
 
 // UNIT TESTS:
 
