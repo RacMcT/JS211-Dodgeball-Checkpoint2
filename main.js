@@ -8,6 +8,7 @@ const listOfPlayers = []
 const blueTeam = []
 const redTeam = []
 
+
 // FOR NEW PERSON INPUT FORM
 
 const addNewPerson = (ev) => {
@@ -22,9 +23,6 @@ const addNewPerson = (ev) => {
   }
   document.querySelector('form').reset() // to clear form for next entries
 }
-
-console.log(newpersonForm);
-
 
 //Need form to require all fields filled out
 // Need to use trim() and .style.textTransform = "capitalize"
@@ -46,7 +44,7 @@ const listPeopleChoices = () => {
     button.innerHTML = "Make Player"
     button.addEventListener('click', function() {makePlayer(person.id)})
     li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + "'s age is " + person.age + ". This person's special skill is " + person.skillSet))
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
     listElement.append(li)
   })
 }
@@ -65,12 +63,12 @@ class Player {
     this.canDodgeBall = true
     this.hasPaid = true
     this.isHealthy = true
-    this.yearsExperience = age - 12
+    this.yearsExperience = age - 8
   }
 
   addPlayer() {
-    let uniqueId = this.id
-    let uniqueName = this.name
+    const uniqueId = this.id
+    const uniqueName = this.name
 
     const listPlayers = document.getElementById("players")
     const li = document.createElement("li")
