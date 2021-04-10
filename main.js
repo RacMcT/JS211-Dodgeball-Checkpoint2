@@ -1,6 +1,6 @@
 'use strict';
 
-//brings in the assert module for unit testing
+//brings in the assert module for unit testing -- but doesn't like to be "uncommented" to run GUI
 //const assert = require('assert');
 
 //  Work through business logic for functionality- then create input form for DOM:
@@ -8,7 +8,7 @@
 const arrOfPeople = [
   {
     id: 2,
-    name: "Seamus Gonsalez",
+    name: "Seamus Picard",
     age: 25,
     skillSet: "ball thrower",
     placeBorn: "Milwaukee, Wisconsin"
