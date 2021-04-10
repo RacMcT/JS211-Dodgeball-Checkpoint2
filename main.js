@@ -18,14 +18,20 @@ const addNewPerson = (ev) => {
     age: document.getElementById('age').value,
     skillSet: document.getElementById('skillSet').value,
     placeBorn: document.getElementById('placeBorn').value
+
   }
-  newPerson.push(newPersonForm);
   document.querySelector('form').reset() // to clear form for next entries
 }
+
+console.log(newpersonForm);
 
 
 //Need form to require all fields filled out
 // Need to use trim() and .style.textTransform = "capitalize"
+
+//ADD TO THE CODE:
+//Use the class keyword to create a template of a dodgeBallPlayer that requires 
+//canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience.
 
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('submit').addEventListener('click', addNewPerson);
@@ -38,9 +44,9 @@ const listPeopleChoices = () => {
     const li = document.createElement("li")
     const button = document.createElement("button")
     button.innerHTML = "Make Player"
-    button.addEventListener('click', function() {makePlayer(person.id)} )
+    button.addEventListener('click', function() {makePlayer(person.id)})
     li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    li.appendChild(document.createTextNode(person.name + "'s age is " + person.age + ". This person's special skill is " + person.skillSet))
     listElement.append(li)
   })
 }
@@ -48,18 +54,23 @@ const listPeopleChoices = () => {
 function clearList(){
   document.getElementById("people").innerHTML = ''; 
 }
-
-
+// need to add dodgeball attributes/key values to form and to player class!!
 class Player {
-  constructor(id, name, index) {
+  constructor(id, name, index, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) {
     this.id = id
     this.name = name
-    this.index = index
+    this.index = index        
+    this.age = age
+    this.canThrowBall = true
+    this.canDodgeBall = true
+    this.hasPaid = true
+    this.isHealthy = true
+    this.yearsExperience = age - 12
   }
 
   addPlayer() {
-    const uniqueId = this.id
-    const uniqueName = this.name
+    let uniqueId = this.id
+    let uniqueName = this.name
 
     const listPlayers = document.getElementById("players")
     const li = document.createElement("li")
@@ -90,10 +101,11 @@ class Player {
   }
 }
 class Teammate extends Player {
-  constructor(id, name, color, mascot) {
-    super(id, name)
+  constructor(id, name, color, mascot, skillSet, yearsExperience) {
+    super(id, name, skillSet, yearsExperience)
     this.color = color
     this.mascot = mascot
+    this.skillSet = skillSet
   }
 
   addBlueTeammate() {
