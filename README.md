@@ -28,16 +28,14 @@
 
 1. 20pts - Minimum 3 Unit Tests - Use Mocha and Chai to give us at least 3 unit tests that prove a person becomes a player and a player becomes a teammate.
 
+1. ADDITONAL PUSH YOURSELF SPEC'S (OPTIONAL):
+
 - Add an input at the top of the Window that allows for a user to add new people! - WORKING THROUGH
 - Make a random-izer to automatically select teams for us!
 - Add multiple teams to add players to.
 - Change the color of the text for each color based on the color of their team!
 - Make a button to remove Players from Teams and move them back to the Players list.
 - Make a button to remove Players from the Players List and move them into the People List.
-
-# fix continual loop everytime click list people button- just reloops and pushes to DOM same list
-
-- need to put function into DOM via button?
 
 ## RACHEL'S CODE PLAN:
 
@@ -51,7 +49,7 @@
 # INPUT FORM
 
 - Create input form in HTML for new person
-- Input needs whitespace trimmed and case sensitive --> trim() and .style.textTransform = "capitalize"; use these at getElementByID() for form data retrieval
+- Input needs whitespace trimmed and case sensitive --> trim() --> use at getElementByID() for form data retrieval
 - New person form data needs to be retrieved and saved with keys
 - New person form data needs to be appended to or added to current objects in person class
 
